@@ -20,7 +20,17 @@ module.exports = {
   devServer: {
     contentBase: PATHS.dist
   },
+  eslint: {
+    contentBase: PATHS.dist
+  },
   module:{
+    preLoaders:[
+      {
+        test:/\.js$/,
+        loaders: ["eslint-loader"],
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test:/\.html$/,
